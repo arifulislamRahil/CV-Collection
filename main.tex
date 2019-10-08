@@ -1,0 +1,321 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[08pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{black}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc} 
+\usepackage{amsmath}                      % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\newlength\listtripleitemmaincolumnwidth
+
+\makeatletter
+\renewcommand*{\recomputecvlengths}{%
+  \setlength{\quotewidth}{0.65\textwidth}%
+  \setlength{\maincolumnwidth}{\textwidth-\separatorcolumnwidth-\hintscolumnwidth}%
+  \setlength{\listitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth}%
+  \setlength{\doubleitemmaincolumnwidth}{\maincolumnwidth-\hintscolumnwidth-\separatorcolumnwidth-\separatorcolumnwidth}%
+  \setlength{\doubleitemmaincolumnwidth}{0.5\doubleitemmaincolumnwidth}%
+  \setlength{\listdoubleitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth-\separatorcolumnwidth-\listitemsymbolwidth}%
+  \setlength{\listdoubleitemmaincolumnwidth}{0.5\listdoubleitemmaincolumnwidth}%
+  \setlength\listtripleitemmaincolumnwidth{.66\listdoubleitemmaincolumnwidth}%
+  \renewcommand{\headwidth}{\textwidth}%
+  \setlength{\parskip}{0\p@}%
+}
+\makeatother
+
+\newcommand{\cvdoublecolumn}[2]{%
+  \cvline{}{%
+  \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#2\end{minipage}%
+ }%
+}
+
+\newcommand{\cvtriplecolumn}[3]{%
+  \cvline{}{%
+  \begin{minipage}[t]{\listtripleitemmaincolumnwidth}#1\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{\listtripleitemmaincolumnwidth}#2\end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{\listtripleitemmaincolumnwidth}#3\end{minipage}%
+ }%
+}
+
+\newcommand{\cvreference}[7]{%
+  \textbf{#1}\newline% Name
+  \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+  \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+  \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+  \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+  \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+  \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}}
+
+
+
+
+
+% personal data
+\name{Md Fahim}{Sikder}
+\title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+%\address{1208/1, East Shewrapara,}{Mirpur, Dhaka-1216}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\address{240/1/A, Meradia,}{Bhuiyanpara Road,}{Khilgaon, Dhaka-1219}
+%\address{1007/A, East Shewrapara,}{Kafrul,}{Dhaka-1216}
+\phone[mobile]{+8801521456006}                   % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+%\email{fahim@bsmrstu.edu.bd}
+\email{fahimsikder01@gmail.com}
+%\email{fahim\_cse@istt.edu.bd}                            % optional, remove / comment the line if not wanted
+\homepage{fahim-sikder.github.io}                         % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+\photo[68pt][0.4pt]{fahim.jpg}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Objectives}
+
+%\cventry{}{\normalfont{To build a career as promising researcher or academician and work for the furtherance of future world}}{}{}{}{}
+
+\cventry{}{\normalfont{To build a career as promising researcher or academician and work for the amelioration of future world}}{}{}{}{}
+
+%\cventry{}{\normalfont{To secure a establish position in a organization or research facility and work for the furtherance of the organization}}{}{}{}{}
+
+
+
+%\section{Self Assesment}
+%\cventry{}{\normalfont{I would like to introduce myself as a sincere, honest, hard working, pragmatically challenging, self-motivated and reasonably presentable person having positive attitude towards working with good interpersonal relations with different nationals and diversities}}{}{}{}{}
+
+\section{Experience}
+\cventry{July, 2017 -- Present}{Lecturer}{Department of Computer Science and Engineering}{\textbf{Institute of Science Trade and Technology (ISTT)}}{Mirpur, Dhaka}{\begin{itemize}
+		\item Faculty Member, ISTT ACM Student Chapter
+		\item Coordinator, HEAP Programming Club, ISTT
+	\end{itemize}}
+
+%\cventry{October, 2017 -- Present}{Mentor}{IEEE ISTT Student Branch}{\textbf{Institute of Science, Trade and Technology}}{Mirpur, Dhaka}{Bangladesh}
+
+%\cventry{October, 2017 -- Present}{Counselor}{ISTT Innovation Hub}{\textbf{Institute of Science, Trade and Technology}}{Mirpur, Dhaka}{Bangladesh}
+
+\section{Publications}
+%\subsection{International Conferences}
+
+\cventry{1.}{Md. Fahim Sikder,\normalfont{ Md. Jamal Uddin, Sajal Halder}}{\textit{\textbf{Predicting Students Yearly Performance using Neural Network: A Case Study of BSMRSTU}}}{In the 5th International Conference on Informatics, Electronics and Vision, Bangladesh, 2016}{Publisher: IEEE}{}
+
+\cventry{2.}{Md. Fahim Sikder,\normalfont{ Sajal Halder, Tanvir Hasan, Md. Jamal Uddin, Mrinal Kanti Baowaly}}{\textit{\textbf{Smart Disaster Notification System}}}{In the 4th International Conference on Advances in Electrical Engineering, Bangladesh, 2017}{Publisher: IEEE}{}
+
+\cventry{3.}{Md. Fahim Sikder}{\textit{\textbf{Bangla Handwritten Digit Recognition \& Generation}}}{In the International Joint Conference on Computational Intelligence, Bangladesh, 2018}{Publisher: Springer}{}
+
+
+%\cventry{3.}{\normalfont{Uzzal Podder,} \textbf{Md. Fahim Sikder}, \normalfont{Md. Akkas Ali}}{\textit{Face Recognition using Fusion of Histogram of Oriented Gradients and Deep Neural Network}}{In the 19th International Conference on Computer and Information Technology, Bangladesh, 2016, In Submission}{}{}
+
+%\cventry{4.}{Md. Fahim Sikder,\normalfont{ Uzzal Podder, Sajal Halder, Barun Mallick, Md. Faizul Islam, Saleh Ahmed}}{\textit{Moytri: An Autonomus Drone for Rescue Mission and Agriculture Sector}}{In the 5th International Conference on Informatics, Electronics and Vision, Bangladesh, 2016, In Submission}{}{}
+
+
+%\clearpage
+
+
+\section{Education}
+
+%\cventry{Passing Year: }{}{}{}{}{}
+
+\cventry{Passing Year 2018}{M.Sc in Computer Science}{Jahangirnagar University}{Savar, Bangladesh}{CGPA: \textbf{3.73} (on scale \textbf{4.0})}{Research Project: Study on Bangla Machine Translation Technique using Long Short Term Memory (LSTM)}
+%\cventry{Passing Year 2018}{M.Sc in Computer Science}{Jahangirnagar University}{Savar, Bangladesh}{CGPA: \textbf{3.75} (on scale \textbf{4.0})}{}
+\cventry{2016}{B.Sc (Engg.) in Computer Science and Engineering}{Bangabandhu Sheikh Mujibur Rahman Science and Technology University}{Gopalganj, Bangladesh}{CGPA: \textbf{3.80 with distinction} (on scale \textbf{4.0}) , Position: \textbf{4} (out of 44)}{Thesis: Face Recognition: A Fused Deep Learning Approach}  % arguments 3 to 6 can be left empty
+\cventry{2012}{Higher Secondary Certificate}{Khilgaon Government High School}{Dhaka, Bangladesh}{GPA: \textbf{4.70} (on scale 5.00)}{}
+
+\cventry{2010}{Secondary School Certificate}{Khilgaon Government High School}{Dhaka, Bangladesh}{GPA: \textbf{5.00} (on scale 5.00)}{}
+
+
+\section{Research Interest}
+
+\cventry{}{\normalfont{My research interests are Deep Learning, Computer Vision, Natural Language Processing, Data Mining, Robotics and Data Science}}{}{}{}{}
+
+%\section{Major Projects}
+%
+%\subsection{\textbf{Official website of Bangabandhu Sheikh Mujibur Rahman Science and Technology University(BSMRSTU)}}
+%\cvitem{Description}{\textbf{(Active: November 2015 - July 2017)} It is the official website of BSMRSTU. This dynamic website facilitates different kind of notice, assignment, official document uploading and manages inter work communication for teachers or administrative members.}
+%\cvitem{Technology}{PHP, Ajax, HTML, CSS, JavaScript, MySql}
+%
+%\subsection{\textbf{Disaster Notification System}}
+%\cvitem{Description}{It is an android application which alerts subscriber about upcoming disaster}
+%\cvitem{Technology}{Android, SQLite, JSON}
+%
+%\subsection{\textbf{Moytri (Drone)}}
+%\cvitem{Description}{It is a QuadCopter (UAV) which will help to identify living objects like human, animal. And aid them in the time of disaster by sending Image and co-ordinate to the control station for rescuing.}
+%\cvitem{Technology}{JAVA, Micro-controller}
+
+
+
+%\section{Major Course Completed}
+%
+%\subsection{Masters of Science}
+%
+%\cventry{}{\normalfont{Data Mining, Medical Imaging, Neural Networks, Cloud Computing, Mobile \& Wireless Communication System, Digital Image Processing}}{}{}{}{}
+%
+%\subsection{Bachelor of Science}
+%\cventry{}{\normalfont{Artificial Intelligence, Machine Learning, Digital Image Processing, Parallel Processing and Distributed System, Operating System and System Programing, Computer Graphics, Computer Architecture and Organization, Database Management System, Compiler Design, Design and Analysis of Algorithm, Automata Theory, Concrete Mathematics and Numerical Analysis}}{}{}{}{}
+
+
+\section{Languages}
+\cvitemwithcomment{Bengali}{Native or Bilingual Proficiency}{}
+\cvitemwithcomment{English}{IELTS(Academic): Overall: 6.5, Listening: 7, Reading: 6.5, Speaking: 6.5, Writing: 6 \\(Expires: 26 July 2021)}{}
+%\cvitemwithcomment{Language 3}{Skill level}{Comment}
+
+%\section{Training}
+%\subsection{\textbf{National Mobile Application Development Awarness \& Capacity Building Program}}
+%\cvitem{Topics Covered}{Android}
+%\cvitem{Institute}{Ministry of Information and Communication Technology (MoICT), Bangladesh}
+%\cvitem{Country}{Bangladesh}
+%\cvitem{Location}{Gopalganj}
+%\cvitem{Training Year}{2014}
+%\cvitem{Duration}{5 days}
+
+
+
+\section{Computer Skills}
+
+\cvitem{Programing Language}{Python, Java, C/C++, C\#, PHP, HTML, CSS, JavaScript, MySql, SQL, Matlab}
+\cvitem{Development Tools}{Android Studio, NetBeans, Eclipse, Weka, XAMPP, Latex, Unity 3D, Visual Studio}
+\cvitem{Deep Learning Framework}{Tensorflow, Keras, PyTorch}
+
+%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+%\clearpage
+
+\section{Special Qualification}
+\cvitem{Awards}{1. \textit{Champion} in \textbf{International Contest on Programming and System Development 2014} at System Development Section, 2014}
+\cvitem{}{2. \textit{Champion} in \textbf{Project Showcasing(Mobile Apps)}, CSE IT Carnival 2015, BSMRSTU, 2015}
+\cvitem{}{3. \textit{Placed Top 200} in \textbf{Young Bangla Youth Award}, 2015}
+\cvitem{}{4. \textit{Best Young Inventor} in \textbf{Digital Innovation Fair 2016}, 2016}
+\cvitem{}{5. \textit{Champion} in \textbf{Dhaka Divisional Science and Technology Fair 2016}, 2016}
+\cvitem{}{6. \textit{Champion} in \textbf{NASA Space Apps Challenge 2016 (Rajshahi Region)}, 2016}
+\cvitem{}{7. \textit{BSMRSTU Best Innovator} in \textbf{BSMRSTU Youth Summit 2016}, BSMRSTU Canvas, 2016}
+\cvitem{}{8. \textit{NVIDIA GPU Grant} in \textbf{NVIDIA, 2018}}
+\cvitem{Membership}{1. Professional Member, \textbf{ACM}}
+\cvitem{Trainings}{1. Mobile Application Development, Ministry of Information and Communication Technology}
+\cvitem{Scholarships}{1. Begam Saleha Scholarship, BSMRSTU, 2014}
+
+%\section{Extra 1}
+%\cvlistitem{je}
+%\cvlistitem{Item 2}
+%\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+\clearpage
+
+\section{Personal Information}
+
+\cvitem{Name}{Md Fahim Sikder}
+\cvitem{Father's Name}{Md. Farukul Islam Sikder}
+\cvitem{Mother's Name}{Laily Begum}
+\cvitem{Spouse's Name}{Umme Habiba Islam}
+\cvitem{Present Address}{240/1/A, Meradia, Bhuiyanpara Road, Khilgaon, Dhaka-1219, Bangladesh}
+\cvitem{Mailing Address}{240/1/A, Meradia, Bhuiyanpara Road, Khilgaon, Dhaka-1219, Bangladesh}
+\cvitem{Permanent Address}{\textit{Village:} Shitarampur, \textit{Post Office:} Shitarampur (8131), \textit{Thana:} Kashiani, \textit{District:} Gopalganj, \textit{Country:} Bangladesh}
+\cvitem{Date of Birth}{October 14, 1995}
+\cvitem{Nationality}{Bangladeshi (by birth)}
+\cvitem{Gender}{Male}
+%\cvitem{Religion}{Muslim}
+\cvitem{Martial Status}{Married}
+\cvitem{Mobile}{+8801521456006, +8801826633997}
+\cvitem{Email}{fahimsikder01@gmail.com, fahim\_cse@istt.edu.bd}
+\cvitem{Blood Group}{O(+ve)}
+
+\section{References}
+%\cvdoublecolumn{\cvreference{Md. Hanif Seddiqui}{Professor}{Department of Computer Science and Engineering}{University of Chittagong,}{Chittagong-4331, Bangladesh}{hanif@cu.ac.bd}{+8801933236173}}{\cvreference{Md. Jamal Uddin}{Assistant Professor}{Department of Computer Science and Engineering}{Bangabandhu Sheikh Mujibur Rahman Science and Technology University,}{Gopalganj-8100, Bangladesh}{jamal.bsmrstu@gmail.com}{+8801734531900}}
+
+\cvdoublecolumn{\cvreference{Sajal Halder}{Assistant Professor}{Department of Computer Science and Engineering}{Jagannath University,}{Dhaka-1100, Bangladesh}{sajal@cse.jnu.ac.bd}{}}
+{\cvreference{Md. Jamal Uddin}{Assistant Professor}{Department of Computer Science and Engineering}{Bangabandhu Sheikh Mujibur Rahman Science and Technology University,}{Gopalganj-8100, Bangladesh}{jamal.bsmrstu@gmail.com}{}}
+
+
+%\section{Declaration}
+%
+%\cventry{}{\normalfont{I affirm that the information given here in is true and accurate to the best of my knowledge and belief}}{}{}{}{}
+%
+%
+%\cventry{}{\textbf{\hfill \break \hfill \break \hfill \break Md. Fahim Sikder}}{}{}{}{}
+%\cventry{}{\normalfont{March, 2018}}{}{}{}{}
+
+
+
+    
+
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{myb}                      % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+%\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+%\date{January 01, 1984}
+%\opening{Dear Sir or Madam,}
+%\closing{Yours faithfully,}
+%\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+%\makelettertitle
+%
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+%
+%Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+%
+%Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+%
+%Albert Einstein discovered that $e=mc^2$ in 1905.
+%
+%\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+%
+%\makeletterclosing
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.
